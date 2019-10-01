@@ -5,6 +5,7 @@ import com.poc.login.loginapp.modal.entity.UserEntity;
 import com.poc.login.loginapp.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +20,7 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping(value="/login", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public String login(@RequestBody LoginRequest loginRequest){
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest){
         return loginService.login(loginRequest);
     }
 

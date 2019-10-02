@@ -5,16 +5,15 @@ import com.poc.login.loginapp.modal.LoginRequest;
 import com.poc.login.loginapp.modal.LoginResponse;
 import com.poc.login.loginapp.modal.entity.UserEntity;
 import com.poc.login.loginapp.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class LoginServiceImpl implements LoginService {
-
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Override
     public LoginResponse login(LoginRequest loginRequest) {

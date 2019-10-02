@@ -4,7 +4,7 @@ import com.poc.login.loginapp.modal.LoginRequest;
 import com.poc.login.loginapp.modal.LoginResponse;
 import com.poc.login.loginapp.modal.entity.UserEntity;
 import com.poc.login.loginapp.service.LoginService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +17,9 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class LoginController {
-
-    @Autowired
-    private LoginService loginService;
+    private final LoginService loginService;
 
     @PostMapping(value="/login", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest){
